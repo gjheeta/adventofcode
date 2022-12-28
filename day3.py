@@ -27,7 +27,17 @@ for item in rucksacks:
 print(rucksack_sum)
 
 #part 2
+rucksack_sum = 0
+while len(rucksacks) > 0:
+    first_rucksack = set(rucksacks.pop())
+    second_rucksack = set(rucksacks.pop())
+    third_rucksack = set(rucksacks.pop())
+    overlap_new = ((first_rucksack.intersection(second_rucksack)).intersection(third_rucksack)).pop()
 
+    if overlap_new.isupper():
+        rucksack_sum += ord(overlap_new) - ord('A') + 27
+    else:
+        rucksack_sum += ord(overlap_new) - ord('a') + 1
 
-
+print(rucksack_sum)
 
